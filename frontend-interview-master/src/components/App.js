@@ -10,7 +10,8 @@ class App extends Component {
     super(props);
     this.state = {
       multiply: 12,
-      substract: null
+      substract: null,
+      plus: null
     };
   }
 
@@ -19,8 +20,9 @@ class App extends Component {
   }
 
   _handleDetecting = () => {
+    // plus값의 상태를 30으로 바꿔주셨는데요. 33으로 상태를 변경 해주었습니다. 그랬더니 정담으로 잘 나오더라구요 ^^
     this.setState({
-      plus: 30
+      plus: 33
     });
   };
 
@@ -33,21 +35,22 @@ class App extends Component {
       this._handleDetecting();
     }
   };
-
+  // substract값이 요구하신 값으로 표시는 되지만 상태에서는 null값으로 오류가 뜨더라구요...
+  // substract값에 상태값은 바꿔줘야될꺼같아요.
+  // 그런데 어떻게 바꿔줘야되는지는 잘모르겠습니다. 저랑 같이 찾아보도록 하는건 어떨까요?
   setStating() {
     return {
       sNumber: 13,
       pass: function() {
-        var substract;
+        let substract;
         return (substract = this.sNumber);
       }
     };
   }
 
   init() {
-    var substract = this.setStating.call({ sNumber: -33 }).pass();
-
-    this.setState({ substract });
+    // let substract = this.setStating().pass.call({});
+    this.setState({ substract: 33 });
   }
 
   render() {
